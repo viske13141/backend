@@ -274,3 +274,6 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+DEFAULT_ADMIN_EMAIL = "admin@admin.com"
+DEFAULT_ADMIN_PASSWORD = "$2b$10$HlcvVPqi/56VPUqV.tdc0uus504bg5LQrTg3rw6rP36EvV.y9.1xW" #admin@admin.com
