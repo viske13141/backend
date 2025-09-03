@@ -10,7 +10,7 @@ WORKDIR /app
 
 # Install system dependencies (for mysqlclient, psycopg2, etc.)
 RUN apt-get update \
-    && apt-get install -y build-essential libpq-dev default-libmysqlclient-dev gcc \
+    && apt-get install -y build-essential libpq-dev default-libmysqlclient-dev gcc pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
 # Install pip & dependencies
