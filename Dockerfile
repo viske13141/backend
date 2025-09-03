@@ -1,27 +1,31 @@
-# Use Python 3.11 (stable)
+# Use official Python image
 FROM python:3.11-slim
 
-# Set working directory
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Set work directory
 WORKDIR /app
 
-# Install system dependencies (example: mysqlclient, tesseract, etc.)
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    default-libmysqlclient-dev \
-    tesseract-ocr \
-    libtesseract-dev \
-    pkg-config \
+# Install system dependencies (for mysqlclient, psycopg2, etc.)
+RUN apt-get update \
+    && apt-get install -y build-essential libpq-dev default-libmysqlclient-dev gcc \
     && rm -rf /var/lib/apt/lists/*
 
-# Install pipenv or just requirements.txt
+# Install pip & dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip setuptools wheel
+RUN pip install -r requirements.txt
 
-# Copy all project files
+# Copy project files
 COPY . .
 
-# Expose port (Render looks for this)
+# Collect static files for whitenoise
+RUN python manage.py collectstatic --noinput
+
+# Expose port
 EXPOSE 8000
 
-# Run your app (change to match your entrypoint, e.g., Django, Flask, FastAPI)
-CMD ["python", "app.py"]
+# Run with Gunicorn (WSGI server)
+CMD ["gunicorn", "yourproject.wsgi:application", "--bind", "0.0.0.0:8000"]
