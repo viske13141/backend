@@ -196,6 +196,7 @@ ALLOWED_HOSTS = [
     "www.intellisurgetechnologies.onrender.com",
     "localhost",
     "127.0.0.1",
+    "https://backend-1-vlgj.onrender.com/"
 ]
 
 INSTALLED_APPS = [
