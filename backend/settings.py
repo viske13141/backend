@@ -243,7 +243,16 @@ TEMPLATES = [
         },
     },
 ]
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'saint_wjet',
+        'USER': 'saint_wjet_user',
+        'PASSWORD': '6on3wkiHzUtwKqvlZ4xN2Ve9stn5mBBX',
+        'HOST': 'dpg-d2srdqfdiees739879k0-a',
+        'PORT': '5432',
+    }
+}
 WSGI_APPLICATION = "backend.wsgi.application"
 
 # ✅ Database: use DATABASE_URL from Render (Postgres)
