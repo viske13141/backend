@@ -249,10 +249,11 @@ DATABASES = {
         'NAME': 'saint_wjet',
         'USER': 'saint_wjet_user',
         'PASSWORD': '6on3wkiHzUtwKqvlZ4xN2Ve9stn5mBBX',
-        'HOST': 'dpg-d2srdqfdiees739879k0-a',
+        'HOST': 'dpg-d2srdqfdiees739879k0-a.oregon-postgres.render.com',
         'PORT': '5432',
     }
 }
+
 WSGI_APPLICATION = "backend.wsgi.application"
 
 # ✅ Database: use DATABASE_URL from Render (Postgres)
