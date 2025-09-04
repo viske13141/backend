@@ -256,14 +256,6 @@ DATABASES = {
 
 WSGI_APPLICATION = "backend.wsgi.application"
 
-# ✅ Database: use DATABASE_URL from Render (Postgres)
-DATABASES = {
-    "default": dj_database_url.config(
-        default="sqlite:///" + str(BASE_DIR / "db.sqlite3"),
-        conn_max_age=600,
-        ssl_require=False
-    )
-}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
