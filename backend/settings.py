@@ -192,12 +192,13 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "fallback-secret-key")  # ⚠️ Loa
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = [
+    "backend-1-vlgj.onrender.com",  
     "intellisurgetechnologies.onrender.com",
     "www.intellisurgetechnologies.onrender.com",
     "localhost",
     "127.0.0.1",
-    "https://backend-1-vlgj.onrender.com/"
 ]
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
