@@ -18,7 +18,7 @@ class Event(models.Model):
     date = models.DateField()
     time = models.TimeField()
     location = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='event_images/')
+    image = models.URLField(max_length=500)
     max_attendees = models.PositiveIntegerField()
     registered_attendees = models.PositiveIntegerField(default=0)
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -30,7 +30,7 @@ class LeadershipMember(models.Model):
     name = models.CharField(max_length=255)
     title = models.CharField(max_length=255)
     bio = models.TextField()
-    image = models.ImageField(upload_to='leadership_images/')
+    image = models.URLField(max_length=500)    
     contact_email = models.EmailField()
     facebook = models.URLField(blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)
@@ -41,7 +41,7 @@ class LeadershipMember(models.Model):
 class MinistryItem(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    image = models.ImageField(upload_to='ministry_images/')
+    image = models.URLField(max_length=500)    
     leader = models.CharField(max_length=255)
     schedule = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
@@ -122,7 +122,8 @@ class Payment(models.Model):
 class Shop(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    image = models.ImageField(upload_to='Shop/')
+    image = models.URLField(max_length=500)    
+
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
